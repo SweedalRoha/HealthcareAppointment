@@ -1,0 +1,20 @@
+ {% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Doctor Dashboard</h2>
+
+    <h4>Appointments</h4>
+    <ul class="list-group">
+        {% for appointment in appointments %}
+            <li class="list-group-item">
+                Patient ID: {{ appointment.patient_id }} | Time: {{ appointment.time }} | Status: {{ appointment.status }}
+                {% if appointment.status == 'pending' %}
+                    <a href="{{ url_for('update_appointment', id=appointment.id, action='accept') }}" class="btn btn-success btn-sm ms-2">Accept</a>
+                    <a href="{{ url_for('update_appointment', id=appointment.id, action='reject') }}" class="btn btn-danger btn-sm ms-2">Reject</a>
+                {% endif %}
+                <a href="{{ url_for('upload_prescription', appointment_id=appointment.id) }}" class="btn btn-primary btn-sm ms-2">Upload Prescription</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

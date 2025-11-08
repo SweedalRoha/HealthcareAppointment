@@ -1,0 +1,41 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    color: #fff;
+}
+
+.container {
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+
+button, input[type="submit"] {
+    background: #2575fc;
+    border: none;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover, input[type="submit"]:hover {
+    background: #6a11cb;
+}
+
+.navbar {
+    background: rgba(0,0,0,0.3);
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.gradient-bg {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    padding: 50px 0;
+}
+.btn-light {
+    background-color: rgba(255,255,255,0.8);
+    color: #333;
+    font-weight: bold;
+}

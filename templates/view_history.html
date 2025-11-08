@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Prescription History</h2>
+    <ul class="list-group">
+        {% for appointment in appointments %}
+            <li class="list-group-item">
+                Doctor ID: {{ appointment.doctor_id }} | Time: {{ appointment.time }} | Status: {{ appointment.status }}
+                {% for presc in prescriptions %}
+                    {% if presc.appointment_id == appointment.id %}
+                        <a href="{{ url_for('uploaded_file', filename=presc.file_url) }}" class="btn btn-primary btn-sm ms-2">Download Prescription</a>
+                    {% endif %}
+                {% endfor %}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

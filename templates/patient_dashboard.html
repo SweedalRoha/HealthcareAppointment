@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Patient Dashboard</h2>
+
+    <h4>Book Appointment</h4>
+    <form method="POST" action="{{ url_for('book_appointment') }}">
+        <div class="mb-3">
+            <select name="doctor_id" class="form-control" required>
+                <option value="">Select Doctor</option>
+                {% for doctor in doctors %}
+                    <option value="{{ doctor.id }}">{{ doctor.username }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <input type="datetime-local" name="time" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-light">Book Appointment</button>
+    </form>
+
+    <h4 class="mt-4">Your Appointments</h4>
+    <ul class="list-group">
+        {% for appointment in appointments %}
+            <li class="list-group-item">
+                Doctor ID: {{ appointment.doctor_id }} | Time: {{ appointment.time }} | Status: {{ appointment.status }}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ url_for('view_history') }}" class="btn btn-light mt-3">View Prescription History</a>
+</div>
+{% endblock %}

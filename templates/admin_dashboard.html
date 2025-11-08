@@ -1,0 +1,31 @@
+ {% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Admin Dashboard</h2>
+
+    <h4>Add Doctor</h4>
+    <form method="POST" action="{{ url_for('add_doctor') }}">
+        <div class="mb-3">
+            <input type="text" name="username" class="form-control" placeholder="Doctor Username" required>
+        </div>
+        <div class="mb-3">
+            <input type="password" name="password" class="form-control" placeholder="Password" required>
+        </div>
+        <button type="submit" class="btn btn-light">Add Doctor</button>
+    </form>
+
+    <h4 class="mt-4">Doctors</h4>
+    <ul class="list-group">
+        {% for doctor in doctors %}
+            <li class="list-group-item">{{ doctor.username }}</li>
+        {% endfor %}
+    </ul>
+
+    <h4 class="mt-4">Patients</h4>
+    <ul class="list-group">
+        {% for patient in patients %}
+            <li class="list-group-item">{{ patient.username }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
